@@ -10,6 +10,18 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   root 'static_pages#top'
+  get 'login', to: 'user_sessions#new'
+  post 'login', to: 'user_sessions#create'
+  get 'logout', to: 'user_sessions#destroy'
+  get 'boards/bookmarks', to: 'bookmarks#index', as: :bookmarks
+  resources :users, only: %i[edit show new create update destroy]
+
+  resources :boards, only: %i[index show create new edit update destroy] do
+    resources :comments, only: %i[new create destroy]
+    resources :bookmarks, only: %i[create destroy], shallow: true
+  end
+
+
 
   # Defines the root path route ("/")
   # root "posts#index"

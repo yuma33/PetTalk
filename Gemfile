@@ -1,6 +1,13 @@
 source "https://rubygems.org"
 
 gem 'rubocop'
+
+gem 'sorcery'
+
+gem 'faker'
+
+gem 'rails-i18n', '~> 7.0.0'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.2", ">= 7.2.2.1"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
@@ -58,3 +65,11 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem 'ransack', '~> 4.3'
+
+gem 'kaminari'
+
+gem 'carrierwave', '2.2.2'
+
+gem 'draper', '4.0.2'

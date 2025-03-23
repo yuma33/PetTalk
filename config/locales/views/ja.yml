@@ -1,0 +1,56 @@
+ja:
+  defaults:
+    delete_confirm: 削除しますか？
+    flash_message:
+      require_login: ログインしてください
+      success_board: "%{item}を作成しました"
+      not_success_board: "%{item}の作成に失敗しました"
+      edit_board: "%{item}を編集しました"
+      not_edit_board: "%{item}の編集に失敗しました"
+      destroy_board: "%{item}を削除しました"
+      comment_board: "%{item}を作成しました"
+      not_comment: "%{item}の作成に失敗しました"
+      comment_destroy: "%{item}を削除しました"
+  helpers:
+    submit:
+      create: 登録
+      submit: 保存
+      update: 更新
+      to_login_page: ログインページへ
+      enter: 登録
+    label:
+      email: メールアドレス
+      password: パスワード
+  user_sessions:
+    new:
+      title: ログイン
+      login: ログイン
+      to_register_page: トップページへ
+      password_forget: パスワードをお忘れの方はこちら
+  users:
+    new:
+      title: ユーザー登録
+      to_login_page: ログインページへ
+      enter: 登録
+  boards:
+    new:
+      title: 投稿作成
+      to_login_page: ログインページへ
+      enter: 登録
+    edit:
+      title: 投稿編集
+      to_login_page: 投稿一覧ページへ
+      enter: 更新
+    show:
+      title: 投稿詳細
+      comment: コメント
+  shared:
+    header:
+      login: ログイン
+      logout: ログアウト
+      create_user: 新規登録
+      board: 掲示板
+      board_index: 掲示板一覧
+      create_board: 掲示板作成
+      bookmark_index: ブックマーク一覧
+      profile: プロフィール

@@ -1,0 +1,54 @@
+<div class="flex md:w-1/3  w-full max-h-md my-5">
+  <div class="mx-auto border border-black w-90" id="board-id-<%= board.id %>">
+    <%= image_tag board.board_image_url, class: "w-full h-50 mb-5"%>
+      <div class="text-center ">
+        <%= link_to board.title, board_path(board), class: "block mb-5  ml-3 break-all text-left text-xl" %>
+          <%= link_to '#' , id: 'button-edit-#{board.id}' do %>
+            <i class="bi bi-pencil-fill"></i>
+          <% end %>
+          <%= link_to '#' , id: 'button-delete-#{board.id}' , method: :delete, data: {confirm: '' } do %>
+            <i class="bi bi-trash-fill"></i>
+          <% end %>
+          <div class="flex justify-between">
+            <div class="flex">
+              <%= image_tag 'person_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png' , class: 'w-6 h-6 ml-2' %>
+              <ul class=" mr-2 ">
+                <li class="  mb-5 text-left">
+                <%= board.user.decorate.full_name %>
+                <%= l board.created_at, format: :short %>
+                </li>
+              </ul>
+            </div>
+            <div class="flex">
+              <% if current_user.own?(board) %>
+                <%= link_to edit_board_path(board) do %>
+                    <%= image_tag 'edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png' , class: 'w-6 h-6' %>
+                <% end %>
+                <%= link_to board_path(board), data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
+                  <span class="material-symbols-outlined mr-3">
+                  delete
+                  </span>
+                <% end %>
+              <% else %>
+              <% if current_user.bookmarks.exists?(board_id: board.id) %>
+                <%= link_to bookmark_path(board.id), data: { turbo_method: :delete } do %>
+                  <%= image_tag 'bookmark_add_24dp_75FB4C_FILL0_wght400_GRAD0_opsz24.png' , class: 'w-6 h-6 mr-3' %>
+                <% end %>
+              <% else %>
+                <%= link_to board_bookmarks_path(board), data: { turbo_method: :post } do %>
+                  <%= image_tag 'bookmark_add_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png' , class: 'w-6 h-6 mr-3' %>
+                <% end %>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+          <p class="text-left mb-5  ml-3 break-all">
+            <% if board.body.length > 48 %>
+              <%= board.body[0...48]... %>
+            <% else %>
+              <%= board.body %>
+            <% end %>
+            </p>
+      </div>
+  </div>
+</div>

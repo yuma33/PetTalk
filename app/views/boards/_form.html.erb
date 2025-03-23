@@ -1,0 +1,26 @@
+<%= form_with model: board, class: "w-full  max-w-lg md:max-w-xl mx-auto " do |f| %>
+  <div class="flex flex-col -mx-3 mb-6">
+    <div class="w-full  px-3 mb-6 md:mb-8">
+      <%= f.label :title, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+        <%= f.text_field :title,
+          class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+          %>
+    </div>
+    <div class="w-full  px-3 mb-6 md:mb-8">
+      <%= f.label :body, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+        <%= f.text_area :body,
+          class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+          %>
+    </div>
+
+    <div class="mb-7">
+    <%= f.label :board_image , class: "block mb-3 ml-2" %>
+    <%= f.file_field :board_image, class: "ml-2", accept: 'image/*' %>
+    <%= f.hidden_field :board_image_cache, class: "ml-2" %>
+  </div>
+    <%= f.submit t('helpers.submit.enter') , class: "mx-auto w-1/2 bg-blue-500 text-white font-bold py-2 px-4 rounded mb-5 md:mb-8" %>
+  <% end %>
+    <div class='text-center md:mb-1'>
+      <%= link_to t('helpers.submit.to_login_page') , boards_path %>
+    </div>
+  </div>

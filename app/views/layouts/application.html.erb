@@ -8,6 +8,10 @@
     <%= csp_meta_tag %>
 
     <%= yield :head %>
+<!-- アイコン用 -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=draw" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=delete" />
 
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" href="/icon.png" type="image/png">
@@ -18,7 +22,12 @@
   </head>
 
   <body class="flex flex-col min-h-screen">
-  <%= render 'shared/header' %>
+  <% if logged_in? %>
+    <%= render 'shared/after_login_header' %>
+  <% else %>
+    <%= render 'shared/header' %>
+  <% end %>
+  <%= render 'shared/flash_messages' %>
   <div class="flex-grow bg-yellow-50">
     <%= yield %>
   </div>

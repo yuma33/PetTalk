@@ -1,0 +1,13 @@
+<header class="bg-amber-300 p-4 text-black md:p-6 w-full top-0 left-0 z-10 ">
+  <nav class="flex justify-between items-center  mx-auto container">
+    <div class="flex items-center">
+      <%= link_to "Pet Talk", "#", class: " text-lg font-bold md:text-3xl"  %>
+    </div>
+    <div class="md:space-x-6 space-x-1 font-bold">
+      <%= link_to "ログアウト", logout_path, class: " text-sm hover:opacity-30 transition-all duration-300 md:text-lg"  %>
+      <%= link_to "お気に入り", bookmarks_path, class: "text-sm hover:opacity-30 transition-all duration-300 md:text-lg"  %>
+      <%= link_to "投稿作成", new_board_path, class: " text-sm hover:opacity-30 transition-all duration-300 md:text-lg"  %>
+      <%= link_to "投稿一覧", boards_path, class: "text-sm hover:opacity-30 transition-all duration-300 md:text-lg"  %>
+    </div>
+  </nav>
+</header>
