@@ -31,11 +31,11 @@
                 <% end %>
               <% else %>
               <% if current_user.bookmarks.exists?(board_id: board.id) %>
-                <%= link_to bookmark_path(board.id), data: { turbo_method: :delete } do %>
+                <%= link_to bookmark_path(board.id), id: "bookmark-button-#{board.id}", data: { turbo_method: :delete } do %>
                   <%= image_tag 'bookmark_add_24dp_75FB4C_FILL0_wght400_GRAD0_opsz24.png' , class: 'w-6 h-6 mr-3' %>
                 <% end %>
               <% else %>
-                <%= link_to board_bookmarks_path(board), data: { turbo_method: :post } do %>
+                <%= link_to board_bookmarks_path(board), id: "unbookmark-button-#{board.id}", data: { turbo_method: :post } do %>
                   <%= image_tag 'bookmark_add_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png' , class: 'w-6 h-6 mr-3' %>
                 <% end %>
               <% end %>

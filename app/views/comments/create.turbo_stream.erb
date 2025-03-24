@@ -1,0 +1,36 @@
+<% if @comment.errors.present? %>
+  <%= turbo_stream.replace "comment_form" do %>
+    <%= render 'comments/form' , comment: @comment , board: @board %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.prepend "comments" do %>
+    <ul class = "", id = "comment-<%=@comment.id%>">
+      <li class=" mb-3 mt-3 border-t border-gray-300">
+        <div class="mt-3 flex justify-between">
+          <div class="flex">
+            <%= image_tag 'person_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png' , class: 'w-6 h-6 ml-2 mr-3 ' %>
+            <%= @comment.user.decorate.full_name %>
+          </div>
+          <% if current_user.have?(@comment) %>
+            <div class="flex">
+              <%= link_to edit_board_path(@board) do %>
+                <%= image_tag 'edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png' , class: 'w-6 h-6' %>
+              <% end %>
+              <%= link_to board_comment_path(@board,@comment), data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
+                <span class="material-symbols-outlined mr-3">
+                  delete
+                </span>
+              <% end %>
+          <% end %>
+          <div>
+        </div>
+      </li>
+      <li class="ml-3 mb-3">
+        <%= @comment.body %>
+      </li>
+    </ul>
+  <% end %>
+  <%= turbo_stream.replace "comment_form" do %>
+    <%= render 'comments/form' , comment: Comment.new , board: @board %>
+  <% end %>
+<% end %>

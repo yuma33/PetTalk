@@ -1,0 +1,5 @@
+<%= turbo_stream.replace "unbookmark-button-#{@board.id}" do %>
+  <%= link_to bookmark_path(@board.id), id: "bookmark-button-#{@board.id}", data: { turbo_method: :delete } do %>
+  <%= image_tag 'bookmark_add_24dp_75FB4C_FILL0_wght400_GRAD0_opsz24.png', class: 'w-6 h-6 mr-3' %>
+  <% end %>
+<% end %>
