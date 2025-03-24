@@ -21,6 +21,11 @@ Rails.application.routes.draw do
     resources :bookmarks, only: %i[create destroy], shallow: true
   end
 
+  resources :password_resets, only: [:create, :edit, :update, :new]
+
+  Rails.application.routes.draw do
+    mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  end
 
   # Defines the root path route ("/")
   # root "posts#index"

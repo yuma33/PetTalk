@@ -1,5 +1,6 @@
 ja:
   defaults:
+    password_reset: パスワードリセット
     delete_confirm: 削除しますか？
     flash_message:
       require_login: ログインしてください
