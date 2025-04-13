@@ -55,3 +55,6 @@ ja:
       create_board: 掲示板作成
       bookmark_index: ブックマーク一覧
       profile: プロフィール
+  bookmarks:
+    index:
+      title: お気入り一覧

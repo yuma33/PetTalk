@@ -1,4 +1,5 @@
 <%= render 'boards/search_form', q: @q, url: boards_path %>
+<h1 class="text-center text-gray-700 md:text-3xl text-2xl font-bold mt-5 mb-2"><%= t('.title') %></h1>
   <!-- 掲示板一覧 -->
   <div class="flex flex-wrap">
     <% if @boards.present? %>
