@@ -72,7 +72,7 @@ gem 'kaminari'
 
 gem 'carrierwave', '2.2.2'
 
-gem 'draper', '4.0.2'
+gem 'draper', '4.0.4'
 
 gem 'letter_opener_web', '2.0.0'
 
