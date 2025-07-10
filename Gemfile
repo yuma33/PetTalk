@@ -70,7 +70,7 @@ gem 'ransack', '~> 4.3'
 
 gem 'kaminari'
 
-gem 'carrierwave', '2.2.2'
+gem 'carrierwave', '3.1.2'
 
 gem 'draper', '4.0.2'
 
