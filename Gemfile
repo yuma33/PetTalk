@@ -74,6 +74,6 @@ gem 'carrierwave', '2.2.2'
 
 gem 'draper', '4.0.2'
 
-gem 'letter_opener_web', '2.0.0'
+gem 'letter_opener_web', '3.0.0'
 
 gem 'config'
